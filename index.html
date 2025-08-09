@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Taking App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body{
+            font-family: 'Poppins',sans-serif;
+        }
+        .Title1{
+            display: flex;
+            margin: 2rem;
+            width: 100%;
+            height: max-content;
+            justify-content: space-around;
+        }
+        .CloseC{
+            cursor: pointer;
+            height: 100%;
+        }
+        .ContainerAdd{
+            display: flex;
+            width: 100vh;
+            height: max-content;
+            backdrop-filter: blur(14px);
+        }
+        .background{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(12px);
+        }
+        .PutText{
+            display: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .NoteS{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(12px);
+            position: absolute;
+        }
+
+        .form{
+            display: flex;
+            width: 27rem;
+            height: 30rem;
+            background-color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        input[type="text"]::placeholder{
+            text-align: center;
+        }
+        .ul{
+            display: flex;
+            flex-direction: column;
+            width: 16rem + max-content;
+            height: 17rem;
+            background-color: white;
+            border-radius: 6px;
+            margin: 1rem;
+        }
+        .judul{
+            display: flex;
+            margin-top: 2rem;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 2rem;
+        }
+        .li{
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem;
+            width: 90%;
+            height: max-content;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .closebtn{
+            width: 4rem;
+            height: 100%;
+            color: red;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px rgb(101, 39, 145) solid;
+            margin: 1rem;
+        }
+        .closebtn:hover{
+            color: black
+        }
+        p{
+            width: 100%;
+            height: 100%;
+            margin: 15px;
+            font-size: small;
+            font-weight: 100;
+            color: gray;
+        }
+        .edited{
+            font-size: 1.5rem;
+        }
+        .edited:hover{
+            border: 1px indigo solid;
+            border-radius: 2px indigo solid;
+        }
+    </style>
+</head>
+<body>
+    
+    <section id="bg" class="border-4 overflow-x-hidden border-indigo-500 items-center justify-center bg-slate-700 h-screen flex flex-col w-screen">
+        <div class="NoteS">
+        <form class="form w-12 4 bg-white h-100 hidden flex-col justify-start items-start">
+            <h1 class="w-full flex m-3 font-sans text-xl font-semibold items-center justify-around rounded-md">Add New Note <button type="button" class="CloseBtn border-1 border-indigo-900 rounded-xl font-bold  w-14 bg-indigo-100 hover:bg-indigo-500 p-1">x</button></h1>
+            
+            <label for="" class="w-full p-4 font-serif font-bold">Title</label>
+            <input type="text" id="text" placeholder="Enter Note Title...." class="Title w-10/12 bg-indigo-100 border-indigo-600 border-2 rounded-sm p-2">
+            <label for="" class="w-full p-4 font-serif font-bold">Content</label>
+            <input type="text" id="content" placeholder="Write Your Note Here..." class="Content m-3 h-28 w-10/12 bg-indigo-100 border-indigo-600 border-2 rounded-sm p-2">
+            <div class="w-full flex justify-end mr-5">
+                <button type="submit" class="CancelBtn bg-slate-300 hover:bg-slate-600 rounded-sm font-serif p-2 m-2">Cancel</button>
+                <button type="submit" class="SubmitBtn bg-indigo-400 hover:bg-indigo-800 text-white rounded-sm font-serif p-2 m-2">Save Note</button>
+            </div>
+        </form>
+        </div>
+        <nav class="flex w-full sticky top-0  h-28 bg-slate-300 shadow-md  justify-between">
+            <h1 class="font-serif font-semibold text-2xl m-7">Quick Notes</h1>
+            <div class="h-auto flex items-center mr-5">
+        <button id="AddNote" class="text-white rounded-xl w-auto h-fit p-3 bg-purple-500 hover:bg-purple-700">+ Add Note</button>
+            <span class=" ml-9 text-3xl rounded-md bg-white hover:bg-slate-500 cursor-pointer w-13 text-center justify-center items-center flex h-13">🌙</span>
+    </div>
+        </nav>
+        <div id="ContainerNote" class="flex w-screen h-full p-4 flex-wrap justify-start">
+            
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
